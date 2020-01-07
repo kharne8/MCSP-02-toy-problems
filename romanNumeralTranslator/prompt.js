@@ -26,6 +26,24 @@ var DIGIT_VALUES = {
   M: 1000
 };
 
-var translateRomanNumeral = function(romanNumeral) {
-  // TODO: Implement me!
+var translateRomanNumeral = function(input) {
+  var X = 10;
+  var I = 1;
+  //return null if input not a string
+  if (!input.typeOf === String && undefined && Number) {
+    return null;
+  }
+  //result var
+  var result = 0;
+  //use split to turn into array
+  var number = input.split("");
+  //if left number is < than the number of right subtract else add resturn number
+  if (number[0] < number[1]) {
+    result = number[1] - number[0];
+  } else {
+    result = number[0] + number[1];
+  }
+  return result;
 };
+
+translateRomanNumeral(2);
