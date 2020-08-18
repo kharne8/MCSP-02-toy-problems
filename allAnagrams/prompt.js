@@ -12,6 +12,37 @@
  * console.log(anagrams); // [ 'abc', 'acb', 'bac', 'bca', 'cab', 'cba' ]
  */
 
-var allAnagrams = function(string) {
-  // Your code here.
+//i A sting
+//o An array containing all possible anagrams
+//c none yet
+
+//I  had to use recursion :(
+
+//iterate through each letter
+
+let example = 'abc';
+
+const allAnagrams = (word) => {
+  //if is empty return empty string
+  if (!word) {
+    return [''];
+  }
+  let result = {};
+
+  //apply forEach to slice and concat
+  word.split('').forEach(function (letter, i) {
+    let remainingLetters = word.slice(0, i) + word.slice(i + 1);
+    //slice(0,i) return ['']
+
+    //use recursion :'( and forEach remainingLetters
+    allAnagrams(remainingLetters).forEach(function (anagram) {
+      result[letter + anagram] = true;
+    });
+  });
+
+  //.keys returns only keys on an Array
+  console.log(Object.keys(result));
+  return Object.keys(result);
 };
+
+console.log(allAnagrams(example));
