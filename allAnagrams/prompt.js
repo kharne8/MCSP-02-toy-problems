@@ -31,11 +31,11 @@ const allAnagrams = (word) => {
 
   //apply forEach to slice and concat
   word.split('').forEach(function (letter, i) {
-    let remainingLetters = word.slice(0, i) + word.slice(i + 1);
+    let letterStorage = word.slice(0, i) + word.slice(i + 1);
     //slice(0,i) return ['']
 
-    //use recursion :'( and forEach remainingLetters
-    allAnagrams(remainingLetters).forEach(function (anagram) {
+    //use recursion :'( and forEach letterStorage
+    allAnagrams(letterStorage).forEach(function (anagram) {
       result[letter + anagram] = true;
     });
   });
