@@ -9,7 +9,7 @@
 // For the word "strength", solve("strength") = 57
 // -- The consonant subhelper are: "str" and "ngth" with values "str" = 19 + 20 + 18 = 57 and "ngth" = 14 + 7 + 20 + 8 = 49. The highest is 57.
 
-function constantValues(helper) {
+function constantValues(string) {
   const alphabet = {
     b: 2,
     c: 3,
@@ -42,7 +42,6 @@ function constantValues(helper) {
     if (keys.includes(helper[i])) {
       helper[i] = alphabet[helper[i]];
     }
-
     if (typeof helper[i] === 'string') {
       sum = 0;
     } else {
@@ -53,17 +52,17 @@ function constantValues(helper) {
     }
     result.sort((a, b) => a - b);
   }
-
   return result[result.length - 1];
 }
 
 // For example, for the word "zodiacs", solve("zodiacs") = 26
 // -- The consonant subhelper are: "z", "d" and "cs" and the values are z = 26, d = 4 and cs = 3 + 19 = 22. The highest is 26.
-let test1 = 'zodiacs';
-console.log(constantValues(test1));
+console.log(constantValues('zodiacs'));
 
-// For the word "strength", solve("strength") = 57
-// -- The consonant subhelper are: "str" and "ngth" with values "str" = 19 + 20 + 18 = 57 and "ngth" = 14 + 7 + 20 + 8 = 49. The highest is 57.
+// // For the word "strength", solve("strength") = 57
+// // -- The consonant subhelper are: "str" and "ngth" with values "str" = 19 + 20 + 18 = 57 and "ngth" = 14 + 7 + 20 + 8 = 49. The highest is 57.
+console.log(constantValues('strength'));
 
-let test2 = 'strength';
-console.log(constantValues(test2));
+console.log(constantValues('mississipi'));
+console.log(constantValues('hello'));
+console.log(constantValues('Marco'));
