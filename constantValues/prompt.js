@@ -34,7 +34,7 @@ function constantValues(string) {
     z: 26,
   };
   let keys = Object.keys(alphabet);
-  let helper = string.split('');
+  let helper = string.toLowerCase().split('');
   let result = [];
   let sum = 0;
 
@@ -42,6 +42,8 @@ function constantValues(string) {
     if (keys.includes(helper[i])) {
       helper[i] = alphabet[helper[i]];
     }
+    console.log(helper);
+
     if (typeof helper[i] === 'string') {
       sum = 0;
     } else {
@@ -59,10 +61,10 @@ function constantValues(string) {
 // -- The consonant subhelper are: "z", "d" and "cs" and the values are z = 26, d = 4 and cs = 3 + 19 = 22. The highest is 26.
 console.log(constantValues('zodiacs'));
 
-// // For the word "strength", solve("strength") = 57
-// // -- The consonant subhelper are: "str" and "ngth" with values "str" = 19 + 20 + 18 = 57 and "ngth" = 14 + 7 + 20 + 8 = 49. The highest is 57.
+// For the word "strength", solve("strength") = 57
+// -- The consonant subhelper are: "str" and "ngth" with values "str" = 19 + 20 + 18 = 57 and "ngth" = 14 + 7 + 20 + 8 = 49. The highest is 57.
 console.log(constantValues('strength'));
 
-console.log(constantValues('mississipi'));
+console.log(constantValues('Mississipi'));
 console.log(constantValues('hello'));
 console.log(constantValues('Marco'));
